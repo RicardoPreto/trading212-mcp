@@ -319,7 +319,9 @@ class HistoryTransactionItem(ApiModel):
     currency: Optional[str] = None
     dateTime: Optional[datetime] = None
     reference: Optional[str] = None
-    type: Optional[HistoryTransactionTypeEnum] = None
+    # Kept as a plain string: the API returns types beyond the documented enum
+    # (e.g. INTEREST_ON_FREE_CASH, LENDING_INTEREST).
+    type: Optional[str] = None
 
 
 class PaginatedResponseHistoricalOrder(ApiModel):
